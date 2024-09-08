@@ -36,7 +36,7 @@ public class Main {
         // t.join(1000);
 
         // boolean status = t.join(Duration.ofSeconds(10));
-
+        
         while (!t.join(Duration.ofSeconds(1))) {
             System.out.println("El hilo t sigue en ejecución");
         }
