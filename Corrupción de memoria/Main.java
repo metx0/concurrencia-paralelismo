@@ -33,7 +33,10 @@ public class Main {
     public static void main(String[] args) throws InterruptedException {
         /* En algunos casos vamos a ver que el programa imprime "99", ya que 
         dos hilos setean la variable del contador al mismo valor, porque 
-        no hay una sincronización entre ellos */
+        no hay una sincronización entre ellos 
+        Modificación: esto era antes de que agregara "synchronized" a la definición
+        del método    
+        */
 
         while (true) {
             iterar();
