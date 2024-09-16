@@ -8,38 +8,49 @@
 import java.util.Random;
 
 public class Matriz {
-    private int totalCuadrados = 0;
+    private int totalCuadrados;
     private int[][] matriz;
     private int filas, columnas;
 
     public Matriz(int filas, int columnas) {
+        totalCuadrados = 0;
         this.filas = filas;
         this.columnas = columnas;
         matriz = new int[filas][columnas];
     }
 
     /* 
-     * Suma la suma interna de los cuadrados de una fila o columna al total
-     * Esto usa exclusión mutua, ya que solo un hilo puede ejecutar este método
+     * Suma la suma interna de los cuadrados de una fila determinada al total
+     * Esto garantiza la exclusión mutua, ya que solo un hilo puede ejecutar este método
      * al mismo tiempo
      * 
-     * @param sumaInterna Suma de la fila o columna, según corresponda
+     * @param sumaInterna Suma de determinada fila
      */
     public synchronized void contribuirTotal(int sumaInterna) {
         totalCuadrados += sumaInterna;
     }
 
-    public void rellenar() {
+    /* 
+     * Inicializa cada elemento del arreglo bidimensional a un 
+     * entero aleatorio dentro del rango [0-limite)
+     * 
+     * @param limite El límite superior del rango de números aleatorios
+     */
+    public void rellenar(int limite) {
         Random random = new Random();
 
-        // Rellenar la matriz de enteros aleatorios (0-99)
+        // Rellenar la matriz de enteros aleatorios (0-limite)
         for (int i = 0; i < filas; i++) {
             for (int j = 0; j < columnas; j++) {
-                matriz[i][j] = random.nextInt(100);
+                matriz[i][j] = random.nextInt(limite);
             }
         }
     }
 
+    /* 
+     * Imprime cada fila de la matriz en una línea distinta, 
+     * con espacios entre los elementos
+     */
     public void imprimir() {
         for (int i = 0; i < filas; i++) {
             for (int j = 0; j < columnas; j++) {

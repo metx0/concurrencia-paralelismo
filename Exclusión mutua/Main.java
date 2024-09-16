@@ -1,9 +1,9 @@
 /* 
  * En el main crearemos una instancia de Matriz,
- * y crearemos hilos para que sumen los cuadrados de cada fila
+ * y crearemos hilos para que sumen los cuadrados de los elementos de cada fila
  * de esta, y contribuyan a la sumatoria total, garantizando
  * la exclusión mutua al momento de escribir en la variable que almacena
- * la suma
+ * la suma total
  */
 public class Main {
     public static void main(String[] args) {
@@ -11,7 +11,7 @@ public class Main {
         int columnas = 10;
         Matriz m = new Matriz(filas, columnas);
 
-        m.rellenar();
+        m.rellenar(100);
         m.imprimir();
 
         Thread[] hilos = new Thread[filas];
@@ -26,7 +26,7 @@ public class Main {
             hilos[i].start();
         }
 
-        // Esperamos a que todos los hilos terminen
+        // Esperamos a que todos los hilos terminen para imprimir el resultado
         for (int i = 0; i < filas; i++) {
             try {
                 hilos[i].join();
