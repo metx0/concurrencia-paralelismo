@@ -14,6 +14,7 @@ public class Contador {
      * ejecuten simultáneamente la modificación a la variable "valor"
      */
     public synchronized void incrementar() {
+        // Podríamos hacer this.valor++, pero elegimos lo siguiente
         int temp = valor;
         temp++;
         this.valor = temp;
