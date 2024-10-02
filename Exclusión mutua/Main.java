@@ -3,7 +3,7 @@
  * y crearemos hilos para que sumen los cuadrados de los elementos de cada fila
  * de esta, y contribuyan a la sumatoria total, garantizando
  * la exclusión mutua al momento de escribir en la variable que almacena
- * la suma total
+ * la suma total, ya que ese método es sincronizado
  */
 public class Main {
     public static void main(String[] args) {
@@ -14,6 +14,7 @@ public class Main {
         m.rellenar(100);
         m.imprimir();
 
+        // Creamos un arreglo de hilos (uno para cada fila)
         Thread[] hilos = new Thread[filas];
 
         // Inicializamos cada hilo y después los ejecutamos

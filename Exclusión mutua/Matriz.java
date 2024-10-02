@@ -24,10 +24,10 @@ public class Matriz {
      * Esto garantiza la exclusión mutua, ya que solo un hilo puede ejecutar este método
      * al mismo tiempo
      * 
-     * @param sumaInterna Suma de determinada fila
+     * @param sumaInterna Suma de los cuadrados de los elementos de determinada fila
      */
     public synchronized void contribuirTotal(int sumaInterna) {
-        totalCuadrados += sumaInterna;
+        this.totalCuadrados += sumaInterna;
     }
 
     /* 

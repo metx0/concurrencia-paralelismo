@@ -15,15 +15,15 @@ public class HiloMatriz implements Runnable {
         this.fila = fila;
     }
 
-    @Override
     /* 
      * Sumar los cuadrados de los elementos de la fila que le corresponde
      * Obtiene la fila en cuestión como un arreglo e itera sobre ese arreglo
      * para sumar los cuadrados
      */
+    @Override
     public void run() {
         int[][] matriz = m.getMatriz();
-        // La fila que el hilo sumará
+        // El arreglo que representa la fila que el hilo sumará
         int[] filaMatriz = matriz[fila];
 
         int sumaCuadradosFila = 0;
@@ -36,8 +36,7 @@ public class HiloMatriz implements Runnable {
 
         String nombre = Thread.currentThread().getName();
 
-        // System.out.println(nombre + " terminó de computar la suma: " + sumaCuadradosFila);
-        System.out.printf("%s terminó de computar la suma de la fila %d: %d \n", nombre, this.fila, sumaCuadradosFila);
+        System.out.printf("%s terminó de computar la suma de los cuadrados de la fila %d: %d \n", nombre, this.fila, sumaCuadradosFila);
         m.contribuirTotal(sumaCuadradosFila);
     }    
 }
